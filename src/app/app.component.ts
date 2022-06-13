@@ -16,6 +16,10 @@ export class AppComponent implements OnInit {
     public noteService: NoteService
   ){}
 
+  isNavOpen = false;
+  toggleNav() {
+    this.isNavOpen = !this.isNavOpen
+  }
 
   ngOnInit(){
     this.noteService.load()

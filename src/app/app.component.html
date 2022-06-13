@@ -1,16 +1,23 @@
-<button (click)="createNote()">+ CREATE NOTE</button>
-<br>
-<span>title</span>
-<input type="text" [(ngModel)]="input_title">
-<br>
-<span>content</span>
-<input type="text" [(ngModel)]="input_content">
+<div class="app">
+  <div [ngClass]="['nav', isNavOpen? 'open' : '']">
+    <span class="toggler" (click)="toggleNav()">+</span>
+    <span [ngClass]="['animationshow', isNavOpen?'show':'hide']">
+      <button (click)="createNote()">+ CREATE NOTE</button>
+      <br>
+      <span>title</span>
+      <input type="text" [(ngModel)]="input_title">
+      <br>
+      <span>content</span>
+      <input type="text" [(ngModel)]="input_content">
+    </span>
+  </div>
 
-<div class="note-container">
-  <app-note
-  *ngFor="let note of noteService.notes"
-  [title]="note.title"
-  [content]="note.content"
-  (click)="deleteNote(note.id)"
-  ></app-note>
+  <div class="note-container">
+    <app-note
+    *ngFor="let note of noteService.notes"
+    [title]="note.title"
+    [content]="note.content"
+    (click)="deleteNote(note.id)"
+    ></app-note>
+  </div>
 </div>
